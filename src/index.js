@@ -10,9 +10,11 @@ let activeData = null;
 
 async function nameData() {
     try {
-        
-    } catch (error) {
-        
-    }
-    
+        const response = await fetch(myUrl)
+        if(!response.ok){throw new Error(`${response.status}`);
+        }
+        const data  = await response.json();
+        // checking the data in data 
+        console.log(data);
+
 }
