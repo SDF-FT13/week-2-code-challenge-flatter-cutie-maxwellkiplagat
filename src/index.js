@@ -45,6 +45,33 @@ async function nameData() {
     } catch (error) {
         console.log('error');          
     }
+    async function  updateVotes(){
+        try {
+            const currentVotes = parseInt(voteNum.textContent, 10);
+            const userInputVotes = parseInt(votesInputUser.ariaValueMax,10);
+            if (isNaN(userInputVotes)) {
+                throw new Error("enter a valid vote count");                                
+            }
+            const newVotes = currentVotes + userInputVotes;
+            activeData.votes = newVotes;
+            voteNum.textContent = newVotes
+            const response = await fetch(`${myUrl}/${resourcePart}`,{
+                method: 'PUT',
+                headers:{
+                    'Content-Type':'application/json'
+                },
+                body: JSON.stringify(activeData)
+            });
+            if (!response.ok) {
+                throw new Error(`${response.status}`);                                
+            }
+            const result = await response.json();
+            console.log(result)
+            
+        } catch (error) {
+            console.log(error);             
+        }
+    }
     
 
 }
