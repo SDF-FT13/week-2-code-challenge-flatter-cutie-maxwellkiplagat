@@ -24,6 +24,27 @@ async function nameData() {
             console.log(image);
             console.log(votes);
             console.log(id);
+            // creating the elemrnts to hold the image which has alrady been styled in the css
+            const animalNames = document.createElement('div');
+            const animalChild = document.createElement('span');
 
+            animalChild.textContent = name;
+            animalNames.appendChild(animalChild);
+            //placing the span inside the  div
+            parentBar.appendChild(animalNames);
+            animalNames.addEventListener('click', async ()=> {
+                document.getElementById('image').src = image;
+                document.getElementById('name').textContent = name;
+                voteNum.textContent = votes;
+                resourcePart = id;
+                activeData = element;
+            });   
+           
+        });
+        
+    } catch (error) {
+        console.log('error');          
+    }
+    
 
 }
