@@ -7,3 +7,12 @@ const voteNum = document.getElementById('vote-count');
 const myReset = document.getElementById('reset-btn')
 let resourcePart = null;
 let activeData = null;
+
+async function nameData() {
+    try {
+        
+    } catch (error) {
+        
+    }
+    
+}
