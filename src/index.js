@@ -16,5 +16,14 @@ async function nameData() {
         const data  = await response.json();
         // checking the data in data 
         console.log(data);
+        data.forEach(element => {
+            //accessing the data that is in the db.json
+            const {name, image, votes, id } = element;  
+            //checking the data 
+            console.log(name);
+            console.log(image);
+            console.log(votes);
+            console.log(id);
+
 
 }
